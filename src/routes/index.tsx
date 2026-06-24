@@ -12,6 +12,8 @@ import heroImg from "@/assets/hero-barber.jpg";
 import toolsImg from "@/assets/tools.jpg";
 import salonImg from "@/assets/salon.jpg";
 import logoImg from "@/assets/logo.png";
+import heroVideo from "@/assets/hero-loop.mp4.asset.json";
+import toolsVideo from "@/assets/tools-loop.mp4.asset.json";
 
 import { WILAYAS, SERVICES, TIME_SLOTS, WHATSAPP_NUMBER } from "@/lib/wilayas";
 import { createAppointment, submitLead } from "@/lib/booking.functions";
@@ -84,7 +86,16 @@ function Hero() {
   return (
     <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden grain">
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
-        <img src={heroImg} alt="Barbier Noren Grooming" className="h-full w-full object-cover" />
+        <video
+          src={heroVideo.url}
+          poster={heroImg}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="h-full w-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/30 to-transparent" />
       </motion.div>
@@ -214,7 +225,16 @@ function Services() {
           transition={{ duration: 1 }}
           className="mt-24 relative rounded-3xl overflow-hidden h-[400px]"
         >
-          <img src={toolsImg} alt="Outils de grooming premium" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+          <video
+            src={toolsVideo.url}
+            poster={toolsImg}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
           <div className="relative h-full flex items-center px-12">
             <div className="max-w-md">
