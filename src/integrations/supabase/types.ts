@@ -14,7 +14,96 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      appointments: {
+        Row: {
+          appointment_date: string
+          appointment_time: string
+          city: string | null
+          created_at: string
+          email: string | null
+          full_name: string
+          id: string
+          id_card_recto_path: string
+          id_card_verso_path: string | null
+          notes: string | null
+          phone: string
+          service: string
+          status: string
+          updated_at: string
+          whatsapp_sent: boolean
+          wilaya: string
+        }
+        Insert: {
+          appointment_date: string
+          appointment_time: string
+          city?: string | null
+          created_at?: string
+          email?: string | null
+          full_name: string
+          id?: string
+          id_card_recto_path: string
+          id_card_verso_path?: string | null
+          notes?: string | null
+          phone: string
+          service: string
+          status?: string
+          updated_at?: string
+          whatsapp_sent?: boolean
+          wilaya: string
+        }
+        Update: {
+          appointment_date?: string
+          appointment_time?: string
+          city?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string
+          id?: string
+          id_card_recto_path?: string
+          id_card_verso_path?: string | null
+          notes?: string | null
+          phone?: string
+          service?: string
+          status?: string
+          updated_at?: string
+          whatsapp_sent?: boolean
+          wilaya?: string
+        }
+        Relationships: []
+      }
+      landing_leads: {
+        Row: {
+          created_at: string
+          email: string | null
+          full_name: string
+          id: string
+          message: string | null
+          phone: string
+          source: string | null
+          whatsapp_sent: boolean
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          full_name: string
+          id?: string
+          message?: string | null
+          phone: string
+          source?: string | null
+          whatsapp_sent?: boolean
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          full_name?: string
+          id?: string
+          message?: string | null
+          phone?: string
+          source?: string | null
+          whatsapp_sent?: boolean
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
