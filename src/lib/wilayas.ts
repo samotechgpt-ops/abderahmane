@@ -73,12 +73,12 @@ export const WILAYAS: { code: string; name: string }[] = [
 ];
 
 export const SERVICES = [
-  "Coupe Signature",
-  "Rasage à l'Ancienne",
-  "Coupe + Barbe",
-  "Soin Visage Premium",
-  "Coloration Barbe",
-  "Forfait Marié",
+  "Adult Premium Grooming — 2500 DA",
+  "Kids Grooming — 1500 à 2000 DA",
+  "NOREN Membership (Abonnement mensuel)",
+  "Service à domicile",
+  "Service hôtel",
+  "Service bureau",
 ];
 
 export const TIME_SLOTS = [

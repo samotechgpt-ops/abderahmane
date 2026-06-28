@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import {
   Scissors, Sparkles, MapPin, Phone, Calendar as CalIcon, Upload,
   CheckCircle2, ShieldCheck, Crown, Clock, Star, ChevronRight,
+  Home as HomeIcon, Building2, Hotel, Quote, MessageCircle,
 } from "lucide-react";
 import { toast, Toaster } from "sonner";
 
@@ -12,6 +13,7 @@ import heroImg from "@/assets/hero-barber.jpg";
 import toolsImg from "@/assets/tools.jpg";
 import salonImg from "@/assets/salon.jpg";
 import logoImg from "@/assets/logo.png";
+import founderImg from "@/assets/founder.jpg";
 import heroVideo from "@/assets/hero-loop.mp4.asset.json";
 import toolsVideo from "@/assets/tools-loop.mp4.asset.json";
 
@@ -38,11 +40,34 @@ function Home() {
       <Nav />
       <Hero />
       <Services />
+      <Pricing />
+      <Membership />
+      <Founder />
+      <Testimonials />
       <Coverage />
       <BookingSection />
       <ContactSection />
       <Footer />
+      <FloatingWhatsApp />
     </div>
+  );
+}
+
+function FloatingWhatsApp() {
+  return (
+    <motion.a
+      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Bonjour NOREN Grooming, je souhaite des informations.")}`}
+      target="_blank" rel="noreferrer"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ delay: 1.5, type: "spring" }}
+      whileHover={{ scale: 1.08 }}
+      whileTap={{ scale: 0.95 }}
+      aria-label="WhatsApp"
+      className="fixed bottom-6 right-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-gold pulse-gold"
+    >
+      <MessageCircle className="h-7 w-7" />
+    </motion.a>
   );
 }
 
@@ -62,11 +87,13 @@ function Nav() {
             <div className="text-[10px] tracking-[0.3em] text-muted-foreground -mt-1">GROOMING</div>
           </div>
         </div>
-        <nav className="hidden md:flex items-center gap-8 text-sm">
+        <nav className="hidden md:flex items-center gap-7 text-sm">
           <a href="#services" className="hover:text-gold transition-colors">Services</a>
+          <a href="#tarifs" className="hover:text-gold transition-colors">Tarifs</a>
+          <a href="#membership" className="hover:text-gold transition-colors">Membership</a>
+          <a href="#founder" className="hover:text-gold transition-colors">Founder</a>
           <a href="#zones" className="hover:text-gold transition-colors">Zones</a>
           <a href="#rdv" className="hover:text-gold transition-colors">Réserver</a>
-          <a href="#contact" className="hover:text-gold transition-colors">Contact</a>
         </nav>
         <a
           href="#rdv"
@@ -108,17 +135,25 @@ function Hero() {
           className="max-w-2xl"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-background/40 backdrop-blur px-4 py-1.5 text-xs tracking-widest text-gold">
-            <Crown className="h-3 w-3" /> ALGÉRIE · 69 WILAYAS
+            <Crown className="h-3 w-3" /> OUARGLA · ALGÉRIE · MOBILE GROOMING
           </div>
           <h1 className="mt-6 font-display text-5xl sm:text-7xl lg:text-8xl font-bold leading-[0.95]">
             <span className="block">L'art du</span>
             <span className="block text-gold glow-text italic">grooming</span>
-            <span className="block">redéfini.</span>
+            <span className="block">à domicile.</span>
           </h1>
-          <p className="mt-8 text-lg text-muted-foreground max-w-lg leading-relaxed">
-            Noren Grooming amène l'excellence du barbier premium chez vous.
-            Réservation simple, confirmation WhatsApp instantanée, service irréprochable.
+          <p dir="rtl" className="mt-6 font-display text-2xl text-gold/90 leading-snug">
+            فن العناية الراقية — يصلك أينما كنت
           </p>
+          <p className="mt-6 text-lg text-muted-foreground max-w-lg leading-relaxed">
+            NOREN Grooming — Premium Mobile Grooming Service.
+            Service à domicile, à l'hôtel ou au bureau. Réservation rapide via WhatsApp.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2 text-xs">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/40 px-3 py-1.5"><HomeIcon className="h-3.5 w-3.5 text-gold" /> Home Service</span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/40 px-3 py-1.5"><Hotel className="h-3.5 w-3.5 text-gold" /> Hotel Service</span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/40 px-3 py-1.5"><Building2 className="h-3.5 w-3.5 text-gold" /> Office Service</span>
+          </div>
 
           <div className="mt-10 flex flex-wrap gap-4">
             <motion.a
@@ -600,14 +635,296 @@ function Footer() {
           <img src={logoImg} alt="" className="h-10 w-10 object-contain" />
           <div>
             <div className="font-display font-bold text-gold">NOREN GROOMING</div>
-            <div className="text-xs text-muted-foreground">L'art du grooming · Algérie</div>
+            <div className="text-xs text-muted-foreground">Premium Mobile Grooming · Ouargla, Algérie</div>
           </div>
         </div>
-        <div className="text-sm text-muted-foreground flex items-center gap-2">
-          <Phone className="h-4 w-4 text-gold" /> +213 668 921 713
+        <div className="text-sm text-muted-foreground flex flex-col sm:flex-row items-center gap-3">
+          <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-gold" /> Ouargla — Algeria</span>
+          <span className="inline-flex items-center gap-2"><Phone className="h-4 w-4 text-gold" /> +213 668 921 713</span>
         </div>
         <div className="text-xs text-muted-foreground">© {new Date().getFullYear()} Noren Grooming. Tous droits réservés.</div>
       </div>
     </footer>
+  );
+}
+
+/* ────────── NEW SECTIONS ────────── */
+
+function Pricing() {
+  const plans = [
+    {
+      name: "Adult Premium Grooming",
+      ar: "العناية الراقية للرجال",
+      price: "2500",
+      unit: "DA",
+      features: [
+        "Coupe professionnelle",
+        "Taille & soin de la barbe",
+        "Service mobile chez le client",
+        "Expérience confortable & premium",
+      ],
+      featured: true,
+    },
+    {
+      name: "Kids Grooming",
+      ar: "حلاقة الأطفال",
+      price: "1500 — 2000",
+      unit: "DA",
+      features: [
+        "Tarif selon la distance",
+        "Tarif selon l'âge de l'enfant",
+        "Service adapté & sécurisé",
+        "Ambiance calme et amicale",
+      ],
+    },
+  ];
+  return (
+    <section id="tarifs" className="relative py-32 px-6">
+      <div className="mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="text-xs tracking-[0.3em] text-gold">— TARIFS · الأسعار —</div>
+          <h2 className="mt-4 font-display text-5xl sm:text-6xl font-bold">
+            Services & <span className="italic text-gold">tarifs</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {plans.map((p, i) => (
+            <motion.div
+              key={p.name}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: i * 0.15 }}
+              whileHover={{ y: -8 }}
+              className={`relative rounded-3xl border p-10 shadow-card overflow-hidden ${p.featured ? "border-gold bg-gradient-to-b from-gold/10 to-card" : "border-border bg-card"}`}
+            >
+              {p.featured && (
+                <div className="absolute top-5 right-5 rounded-full bg-gradient-gold px-3 py-1 text-[10px] font-bold tracking-widest text-primary-foreground">
+                  POPULAIRE
+                </div>
+              )}
+              <div className="text-xs tracking-[0.3em] text-muted-foreground">{p.ar}</div>
+              <h3 className="mt-2 font-display text-3xl font-bold">{p.name}</h3>
+              <div className="mt-6 flex items-baseline gap-2">
+                <span className="font-display text-6xl font-bold text-gold">{p.price}</span>
+                <span className="text-sm text-muted-foreground">{p.unit}</span>
+              </div>
+              <ul className="mt-8 space-y-3">
+                {p.features.map((f) => (
+                  <li key={f} className="flex items-start gap-3 text-sm">
+                    <CheckCircle2 className="h-5 w-5 text-gold shrink-0 mt-0.5" />
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href="#rdv" className="mt-10 block w-full text-center rounded-full bg-gradient-gold px-6 py-3 text-sm font-semibold text-primary-foreground shadow-gold">
+                Réserver ce service
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Membership() {
+  const perks = [
+    "Priorité sur les rendez-vous",
+    "Suivi régulier de votre style",
+    "Plus de flexibilité de réservation",
+    "Offres & avantages exclusifs",
+    "Service mobile à domicile, hôtel ou bureau",
+  ];
+  return (
+    <section id="membership" className="relative py-32 px-6 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-dark" />
+      <div className="absolute inset-0 grain" />
+      <div className="relative mx-auto max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <div className="text-xs tracking-[0.3em] text-gold">— ABONNEMENTS MENSUELS —</div>
+          <h2 className="mt-4 font-display text-5xl sm:text-6xl font-bold">
+            NOREN <span className="italic text-gold">Membership</span>
+          </h2>
+          <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
+            Pour nos clients qui souhaitent maintenir un look impeccable en permanence,
+            nous proposons des programmes d'abonnement mensuels flexibles, adaptés à chaque profil.
+          </p>
+          <p dir="rtl" className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+            برامج اشتراك شهرية مرنة تتناسب مع احتياجات كل عميل.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="rounded-3xl border border-gold/40 bg-card/60 backdrop-blur p-10 shadow-gold"
+        >
+          <ul className="grid sm:grid-cols-2 gap-4">
+            {perks.map((p) => (
+              <li key={p} className="flex items-start gap-3">
+                <div className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-gold text-primary-foreground shrink-0">
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+                <span className="text-sm">{p}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-border pt-8">
+            <div>
+              <div className="font-display text-xl font-bold">Programme sur-mesure</div>
+              <div className="text-sm text-muted-foreground">Contactez-nous pour découvrir la formule adaptée.</div>
+            </div>
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Bonjour NOREN, je souhaite des informations sur l'abonnement mensuel Membership.")}`}
+              target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-gold px-6 py-3 text-sm font-semibold text-primary-foreground shadow-gold"
+            >
+              <MessageCircle className="h-4 w-4" /> Demander un programme
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function Founder() {
+  return (
+    <section id="founder" className="relative py-32 px-6">
+      <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
+          className="relative"
+        >
+          <div className="absolute -inset-4 rounded-3xl bg-gradient-gold opacity-30 blur-2xl" />
+          <div className="relative overflow-hidden rounded-3xl border border-gold/40 shadow-gold">
+            <img
+              src={founderImg}
+              alt="Abderrahmane Souici — Founder NOREN Grooming"
+              width={1024}
+              height={1280}
+              loading="lazy"
+              className="w-full h-auto object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <div className="text-xs tracking-[0.3em] text-gold">FOUNDER</div>
+              <div className="font-display text-2xl font-bold mt-1">Abderrahmane Souici</div>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, delay: 0.15 }}
+        >
+          <div className="text-xs tracking-[0.3em] text-gold">— LE FONDATEUR · المؤسس —</div>
+          <h2 className="mt-4 font-display text-5xl font-bold">
+            <span className="text-gold italic">Abderrahmane</span> Souici
+          </h2>
+          <div className="mt-3 text-sm tracking-widest text-muted-foreground uppercase">
+            Founder & Mobile Grooming Specialist
+          </div>
+          <p className="mt-6 text-muted-foreground leading-relaxed">
+            Passionné par l'art du grooming et obsédé par le détail, Abderrahmane a fondé NOREN
+            pour redéfinir l'expérience du barbier en Algérie : un service mobile, premium et
+            personnalisé, qui vient à vous — chez vous, à l'hôtel, ou au bureau.
+          </p>
+          <p dir="rtl" className="mt-4 text-muted-foreground leading-relaxed">
+            مؤسس NOREN، شغفه بفن العناية والاهتمام بالتفاصيل دفعه لإنشاء خدمة حلاقة متنقلة راقية
+            تأتي إليك أينما كنت — في المنزل، الفندق، أو مكان العمل.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-gold px-5 py-2.5 text-sm hover:bg-gold/10 transition-colors"
+            >
+              <MessageCircle className="h-4 w-4 text-gold" /> Contacter le fondateur
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function Testimonials() {
+  const items = [
+    { name: "Yacine B.", city: "Ouargla", rating: 5, text: "Service impeccable, à l'heure et très professionnel. La meilleure coupe que j'ai eue à domicile." },
+    { name: "Karim H.", city: "Hôtel Mehri", rating: 5, text: "Je voyage souvent — qu'ils viennent à l'hôtel change tout. Qualité premium et hygiène irréprochable." },
+    { name: "Sami M.", city: "Bureau · Hassi Messaoud", rating: 5, text: "Abonné depuis 3 mois. Discipline, ponctualité et un vrai sens du détail. Je recommande." },
+    { name: "Walid A.", city: "Ouargla", rating: 5, text: "Coupe pour mon fils — patient, doux, parfait. On ne change plus." },
+  ];
+  return (
+    <section className="relative py-32 px-6 overflow-hidden">
+      <div className="absolute inset-0 grain" />
+      <div className="relative mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="text-xs tracking-[0.3em] text-gold">— TÉMOIGNAGES · آراء العملاء —</div>
+          <h2 className="mt-4 font-display text-5xl sm:text-6xl font-bold">
+            Ils nous ont <span className="italic text-gold">confiés</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {items.map((t, i) => (
+            <motion.figure
+              key={t.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ y: -6 }}
+              className="relative rounded-2xl border border-border bg-card p-8 shadow-card"
+            >
+              <Quote className="absolute top-6 right-6 h-8 w-8 text-gold/30" />
+              <div className="flex gap-1">
+                {Array.from({ length: t.rating }).map((_, k) => (
+                  <Star key={k} className="h-4 w-4 fill-gold text-gold" />
+                ))}
+              </div>
+              <blockquote className="mt-4 text-base leading-relaxed">"{t.text}"</blockquote>
+              <figcaption className="mt-6 flex items-center gap-3">
+                <div className="h-10 w-10 rounded-full bg-gradient-gold inline-flex items-center justify-center text-primary-foreground font-bold text-sm">
+                  {t.name.charAt(0)}
+                </div>
+                <div>
+                  <div className="font-semibold text-sm">{t.name}</div>
+                  <div className="text-xs text-muted-foreground">{t.city}</div>
+                </div>
+              </figcaption>
+            </motion.figure>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
