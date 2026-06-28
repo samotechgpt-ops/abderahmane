@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import {
   Scissors, Sparkles, MapPin, Phone, Calendar as CalIcon, Upload,
   CheckCircle2, ShieldCheck, Crown, Clock, Star, ChevronRight,
+  Home as HomeIcon, Building2, Hotel, Quote, MessageCircle,
 } from "lucide-react";
 import { toast, Toaster } from "sonner";
 
@@ -12,6 +13,7 @@ import heroImg from "@/assets/hero-barber.jpg";
 import toolsImg from "@/assets/tools.jpg";
 import salonImg from "@/assets/salon.jpg";
 import logoImg from "@/assets/logo.png";
+import founderImg from "@/assets/founder.jpg";
 import heroVideo from "@/assets/hero-loop.mp4.asset.json";
 import toolsVideo from "@/assets/tools-loop.mp4.asset.json";
 
@@ -38,11 +40,34 @@ function Home() {
       <Nav />
       <Hero />
       <Services />
+      <Pricing />
+      <Membership />
+      <Founder />
+      <Testimonials />
       <Coverage />
       <BookingSection />
       <ContactSection />
       <Footer />
+      <FloatingWhatsApp />
     </div>
+  );
+}
+
+function FloatingWhatsApp() {
+  return (
+    <motion.a
+      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Bonjour NOREN Grooming, je souhaite des informations.")}`}
+      target="_blank" rel="noreferrer"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ delay: 1.5, type: "spring" }}
+      whileHover={{ scale: 1.08 }}
+      whileTap={{ scale: 0.95 }}
+      aria-label="WhatsApp"
+      className="fixed bottom-6 right-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-gold pulse-gold"
+    >
+      <MessageCircle className="h-7 w-7" />
+    </motion.a>
   );
 }
 
