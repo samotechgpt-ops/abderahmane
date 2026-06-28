@@ -635,11 +635,12 @@ function Footer() {
           <img src={logoImg} alt="" className="h-10 w-10 object-contain" />
           <div>
             <div className="font-display font-bold text-gold">NOREN GROOMING</div>
-            <div className="text-xs text-muted-foreground">L'art du grooming · Algérie</div>
+            <div className="text-xs text-muted-foreground">Premium Mobile Grooming · Ouargla, Algérie</div>
           </div>
         </div>
-        <div className="text-sm text-muted-foreground flex items-center gap-2">
-          <Phone className="h-4 w-4 text-gold" /> +213 668 921 713
+        <div className="text-sm text-muted-foreground flex flex-col sm:flex-row items-center gap-3">
+          <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-gold" /> Ouargla — Algeria</span>
+          <span className="inline-flex items-center gap-2"><Phone className="h-4 w-4 text-gold" /> +213 668 921 713</span>
         </div>
         <div className="text-xs text-muted-foreground">© {new Date().getFullYear()} Noren Grooming. Tous droits réservés.</div>
       </div>
