@@ -87,11 +87,13 @@ function Nav() {
             <div className="text-[10px] tracking-[0.3em] text-muted-foreground -mt-1">GROOMING</div>
           </div>
         </div>
-        <nav className="hidden md:flex items-center gap-8 text-sm">
+        <nav className="hidden md:flex items-center gap-7 text-sm">
           <a href="#services" className="hover:text-gold transition-colors">Services</a>
+          <a href="#tarifs" className="hover:text-gold transition-colors">Tarifs</a>
+          <a href="#membership" className="hover:text-gold transition-colors">Membership</a>
+          <a href="#founder" className="hover:text-gold transition-colors">Founder</a>
           <a href="#zones" className="hover:text-gold transition-colors">Zones</a>
           <a href="#rdv" className="hover:text-gold transition-colors">Réserver</a>
-          <a href="#contact" className="hover:text-gold transition-colors">Contact</a>
         </nav>
         <a
           href="#rdv"
@@ -133,17 +135,25 @@ function Hero() {
           className="max-w-2xl"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-background/40 backdrop-blur px-4 py-1.5 text-xs tracking-widest text-gold">
-            <Crown className="h-3 w-3" /> ALGÉRIE · 69 WILAYAS
+            <Crown className="h-3 w-3" /> OUARGLA · ALGÉRIE · MOBILE GROOMING
           </div>
           <h1 className="mt-6 font-display text-5xl sm:text-7xl lg:text-8xl font-bold leading-[0.95]">
             <span className="block">L'art du</span>
             <span className="block text-gold glow-text italic">grooming</span>
-            <span className="block">redéfini.</span>
+            <span className="block">à domicile.</span>
           </h1>
-          <p className="mt-8 text-lg text-muted-foreground max-w-lg leading-relaxed">
-            Noren Grooming amène l'excellence du barbier premium chez vous.
-            Réservation simple, confirmation WhatsApp instantanée, service irréprochable.
+          <p dir="rtl" className="mt-6 font-display text-2xl text-gold/90 leading-snug">
+            فن العناية الراقية — يصلك أينما كنت
           </p>
+          <p className="mt-6 text-lg text-muted-foreground max-w-lg leading-relaxed">
+            NOREN Grooming — Premium Mobile Grooming Service.
+            Service à domicile, à l'hôtel ou au bureau. Réservation rapide via WhatsApp.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2 text-xs">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/40 px-3 py-1.5"><HomeIcon className="h-3.5 w-3.5 text-gold" /> Home Service</span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/40 px-3 py-1.5"><Hotel className="h-3.5 w-3.5 text-gold" /> Hotel Service</span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/40 px-3 py-1.5"><Building2 className="h-3.5 w-3.5 text-gold" /> Office Service</span>
+          </div>
 
           <div className="mt-10 flex flex-wrap gap-4">
             <motion.a
