@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import {
   Scissors, Sparkles, MapPin, Phone, Calendar as CalIcon, Upload,
   CheckCircle2, ShieldCheck, Crown, Clock, Star, ChevronRight,
-  Home as HomeIcon, Building2, Hotel, Quote, MessageCircle,
+  Home as HomeIcon, Building2, Hotel, Quote, MessageCircle, Download,
 } from "lucide-react";
 import { toast, Toaster } from "sonner";
 
@@ -631,12 +631,22 @@ function Footer() {
   return (
     <footer className="border-t border-border py-12 px-6">
       <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <img src={logoImg} alt="" className="h-10 w-10 object-contain" />
           <div>
             <div className="font-display font-bold text-gold">NOREN GROOMING</div>
             <div className="text-xs text-muted-foreground">Premium Mobile Grooming · Ouargla, Algérie</div>
           </div>
+          <a
+            href="/noren-logo.png"
+            download="NOREN_Grooming_Logo.png"
+            target="_blank"
+            rel="noreferrer"
+            title="Télécharger le logo officiel NOREN en PNG haute résolution"
+            className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/5 px-3 py-1 text-[11px] font-medium text-gold hover:bg-gold hover:text-primary-foreground transition-all duration-300 ml-2"
+          >
+            <Download className="h-3 w-3" /> Télécharger Logo PNG
+          </a>
         </div>
         <div className="text-sm text-muted-foreground flex flex-col sm:flex-row items-center gap-3">
           <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-gold" /> Ouargla — Algeria</span>
