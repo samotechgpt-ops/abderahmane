@@ -13,7 +13,7 @@ import heroImg from "@/assets/hero-barber.jpg";
 import toolsImg from "@/assets/tools.jpg";
 import salonImg from "@/assets/salon.jpg";
 import logoImg from "@/assets/logo.png";
-import founderImg from "@/assets/founder.jpg";
+import founderRealAsset from "@/assets/abderrahmane-real.jpg.asset.json";
 import heroVideo from "@/assets/hero-loop.mp4.asset.json";
 import toolsVideo from "@/assets/tools-loop.mp4.asset.json";
 
@@ -818,7 +818,7 @@ function Founder() {
           <div className="absolute -inset-4 rounded-3xl bg-gradient-gold opacity-30 blur-2xl" />
           <div className="relative overflow-hidden rounded-3xl border border-gold/40 shadow-gold">
             <img
-              src={founderImg}
+              src={founderRealAsset.url}
               alt="Abderrahmane Souici — Founder NOREN Grooming"
               width={1024}
               height={1280}
