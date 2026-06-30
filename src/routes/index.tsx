@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import {
   Scissors, Sparkles, MapPin, Phone, Calendar as CalIcon, Upload,
   CheckCircle2, ShieldCheck, Crown, Clock, Star, ChevronRight,
-  Home as HomeIcon, Building2, Hotel, Quote, MessageCircle, Download,
+  Home as HomeIcon, Building2, Hotel, Quote, MessageCircle,
 } from "lucide-react";
 import { toast, Toaster } from "sonner";
 
